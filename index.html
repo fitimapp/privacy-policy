@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitim - Privacy Policy</title>
+    <style>
+        :root {
+            /* Fonts */
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
+
+            /* Colors - Light (Emerald themed) */
+            --text-color: #052E16;
+            --background-color: #e3f0e9;
+            --tint-color: #15803D;
+            --tint-text-color: #FFFFFF;
+            --icon-color: #166534;
+            --card-color: #FFFFFF;
+            --surface-color: #ECFDF5;
+            --border-color: #a8b9af;
+            --muted-text: #6B7280;
+            --muted-bg: #686e7a;
+
+            --success-color: #16A34A;
+            --warning-color: #F59E0B;
+            --danger-color: #DC2626;
+            --info-color: #0EA5E9;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* Colors - Dark (Deep Slate themed) */
+                --text-color: #F3F4F6;
+                --background-color: #0F172A;
+                --tint-color: #34D399;
+                --tint-text-color: #0F172A;
+                --icon-color: #9CA3AF;
+                --card-color: #1E293B;
+                --surface-color: #111827;
+                --border-color: #334155;
+                --muted-text: #94A3B8;
+                --muted-bg: #1E293B;
+
+                --success-color: #22C55E;
+                --warning-color: #FBBF24;
+                --danger-color: #EF4444;
+                --info-color: #38BDF8;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--background-color);
+            padding: 40px 20px;
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        h1 {
+            font-family: var(--font-rounded), var(--font-sans);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 2rem;
+            margin-right: 10px;
+        }
+
+        .subhead {
+            color: var(--muted-text);
+            margin-bottom: 28px;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .lang-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .lang-tab {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-tab:hover {
+            background: var(--surface-color);
+            color: var(--text-color);
+        }
+
+        .lang-tab.active {
+            background: var(--tint-color);
+            color: var(--tint-text-color);
+        }
+
+        .policy-content {
+            display: none;
+            animation: fade 0.25s ease;
+        }
+
+        .policy-content.active {
+            display: block;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .policy-content h2 {
+            font-family: var(--font-rounded), var(--font-sans);
+            font-size: 1.3rem;
+            margin: 24px 0 10px;
+            font-weight: 700;
+        }
+
+        .policy-content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .policy-content p {
+            line-height: 1.7;
+            margin-bottom: 14px;
+            color: var(--text-color);
+        }
+
+        .policy-content ul {
+            margin: 10px 0 18px 24px;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--surface-color);
+            color: var(--tint-color);
+            border: 1px solid var(--border-color);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 30px;
+            margin-right: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: var(--muted-text);
+            text-align: center;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-color);
+            color: var(--card-color);
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .container {
+                padding: 24px 18px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .lang-tab {
+                padding: 6px 14px;
+                font-size: 0.8rem;
+            }
+
+            .toast {
+                font-size: 0.75rem;
+                padding: 8px 18px;
+                bottom: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>
+            <img src="./img/logo_final.png" class="logo" alt="Logo">
+            <span style="color: #15803D;">Fiti</span><span style="color: #34D399;">m</span>
+        </h1>
+        <div class="subhead">Privacy Policy · Politique de confidentialité · Politik konfidansyalite · Política de
+            privacidad</div>
+
+        <!-- Language Tabs -->
+        <div class="lang-tabs">
+            <button class="lang-tab" data-lang="en">🇬🇧 English</button>
+            <button class="lang-tab" data-lang="fr">🇫🇷 Français</button>
+            <button class="lang-tab" data-lang="ht">🇭🇹 Kreyòl</button>
+            <button class="lang-tab" data-lang="es">🇪🇸 Español</button>
+        </div>
+
+        <!-- ============ ENGLISH ============ -->
+        <div id="lang-en" class="policy-content">
+            <h2>Privacy Policy</h2>
+            <p><strong>Effective date:</strong> July 8, 2026</p>
+            <p>Fitim ("we", "our", or "the app") is a financial budgeting and forecasting tool designed with your
+                privacy as our top priority.</p>
+
+            <h2>No Data Collection</h2>
+            <p><span class="badge">Zero data</span> Fitim does <strong>not</strong> collect, store, or transmit any
+                personal data, financial information, or device identifiers.</p>
+            <ul>
+                <li>No backend servers — everything runs locally on your device.</li>
+                <li>No account creation — you use the app anonymously.</li>
+                <li>No analytics, crash reports, or tracking cookies.</li>
+                <li>No third-party SDKs that collect data.</li>
+            </ul>
+
+            <h2>Where Your Data Lives</h2>
+            <p>All budget entries, forecasts, and settings you create are stored <strong>exclusively on your own
+                    device</strong> (local storage). We never have access to them, and they are never sent over the
+                internet.</p>
+
+            <h2>Your Control</h2>
+            <p>You are in full control of your data. You can delete all app data at any time by clearing the app's local
+                storage or uninstalling the app.</p>
+
+            <h2>Age Restriction</h2>
+            <p>Fitim is intended for users <strong>aged 13 and older</strong>. We do not knowingly collect any data from
+                anyone, regardless of age, because we collect nothing at all.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this privacy policy occasionally. Any changes will be posted within the app. Continued use
+                of Fitim constitutes acceptance of the updated policy.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this privacy policy, you can reach us at: <br />
+                <strong>📧 fitimapp@gmail.com</strong>
+            </p>
+        </div>
+
+        <!-- ============ FRANÇAIS ============ -->
+        <div id="lang-fr" class="policy-content">
+            <h2>Politique de confidentialité</h2>
+            <p><strong>Date d'entrée en vigueur :</strong> 8 juillet 2026</p>
+            <p>Fitim (« nous », « notre » ou « l'application ») est un outil de budgétisation et de prévisions
+                financières conçu avec votre vie privée comme priorité absolue.</p>
+
+            <h2>Aucune collecte de données</h2>
+            <p><span class="badge">Zéro donnée</span> Fitim ne <strong>collecte, ne stocke ni ne transmet</strong>
+                aucune donnée personnelle, information financière ou identifiant d'appareil.</p>
+            <ul>
+                <li>Pas de serveurs backend — tout fonctionne localement sur votre appareil.</li>
+                <li>Pas de création de compte — vous utilisez l'application de manière anonyme.</li>
+                <li>Pas d'analyses, de rapports d'erreur ou de cookies de suivi.</li>
+                <li>Pas de SDK tiers qui collectent des données.</li>
+            </ul>
+
+            <h2>Où vivent vos données</h2>
+            <p>Toutes les entrées budgétaires, prévisions et paramètres que vous créez sont stockés
+                <strong>exclusivement sur votre propre appareil</strong> (stockage local). Nous n'y avons jamais accès
+                et elles ne sont jamais transmises par internet.
+            </p>
+
+            <h2>Votre contrôle</h2>
+            <p>Vous avez un contrôle total sur vos données. Vous pouvez supprimer toutes les données de l'application à
+                tout moment en effaçant le stockage local de l'application ou en désinstallant l'application.</p>
+
+            <h2>Restriction d'âge</h2>
+            <p>Fitim est destiné aux utilisateurs <strong>âgés de 13 ans et plus</strong>. Nous ne collectons sciemment
+                aucune donnée de quiconque, quel que soit l'âge, car nous ne collectons rien du tout.</p>
+
+            <h2>Modifications de cette politique</h2>
+            <p>Nous pouvons mettre à jour cette politique de confidentialité occasionnellement. Toute modification sera
+                affichée dans l'application. L'utilisation continue de Fitim constitue une acceptation de la politique
+                mise à jour.</p>
+
+            <h2>Nous contacter</h2>
+            <p>Si vous avez des questions concernant cette politique de confidentialité, vous pouvez nous joindre à :
+                <br />
+                <strong>📧 fitimapp@gmail.com</strong>
+            </p>
+        </div>
+
+        <!-- ============ HAITIAN CREOLE ============ -->
+        <div id="lang-ht" class="policy-content">
+            <h2>Politik konfidansyalite</h2>
+            <p><strong>Dat antre an vi :</strong> 8 jiyè 2026</p>
+            <p>Fitim (« nou », « pa nou » oswa « aplikasyon an ») se yon zouti bidjè ak previzyon finansyè ki fèt ak vi
+                prive ou kòm pi gwo priyorite.</p>
+
+            <h2>Pa gen kolekte done</h2>
+            <p><span class="badge">Zewo done</span> Fitim pa <strong>kolekte, estoke oswa transmèt</strong> okenn done
+                pèsonèl, enfòmasyon finansyè oswa idantifyan aparèy.</p>
+            <ul>
+                <li>Pa gen sèvè backend — tout bagay mache lokalman sou aparèy ou.</li>
+                <li>Pa gen kreyasyon kont — ou itilize aplikasyon an anonim.</li>
+                <li>Pa gen analiz, rapò erè oswa ki swiv cookies.</li>
+                <li>Pa gen SDK twazyèm pati ki kolekte done.</li>
+            </ul>
+
+            <h2>Kote done ou yo rete</h2>
+            <p>Tot antre bidjè, previzyon ak paramèt ou kreye yo estoke <strong>sèlman sou aparèy ou</strong> (depo
+                lokal). Nou pa janm gen aksè a yo, epi yo pa janm voye sou entènèt.</p>
+
+            <h2>Kontwòl ou</h2>
+            <p>Ou gen tout kontwòl sou done ou yo. Ou ka efase tout done aplikasyon an nenpòt lè lè ou efase depo lokal
+                aplikasyon an oswa désinstale aplikasyon an.</p>
+
+            <h2>Restriksyon laj</h2>
+            <p>Fitim fèt pou itilizatè <strong>ki gen 13 an oswa plis</strong>. Nou pa kolekte okenn done ak konesans
+                pèsonn, kèlkeswa laj, paske nou pa kolekte anyen ditou.</p>
+
+            <h2>Chanjman nan politik sa a</h2>
+            <p>Nou ka mete ajou politik konfidansyalite sa a detanzantan. Nenpòt chanjman yo pral afiche nan aplikasyon
+                an. Sèvi ak Fitim kontinyèlman vle di ou aksepte politik ki mete ajou a.</p>
+
+            <h2>Kontakte nou</h2>
+            <p>Si w gen kesyon sou politik konfidansyalite sa a, ou ka kontakte nou nan : <br />
+                <strong>📧 fitimapp@gmail.com</strong>
+            </p>
+        </div>
+
+        <!-- ============ SPANISH ============ -->
+        <div id="lang-es" class="policy-content">
+            <h2>Política de privacidad</h2>
+            <p><strong>Fecha de entrada en vigor:</strong> 8 de julio de 2026</p>
+            <p>Fitim (« nosotros », « nuestro » o « la aplicación ») es una herramienta de presupuestación y previsión
+                financiera diseñada con su privacidad como máxima prioridad.</p>
+
+            <h2>Sin recopilación de datos</h2>
+            <p><span class="badge">Cero datos</span> Fitim <strong>no recopila, almacena ni transmite</strong> ningún
+                dato personal, información financiera ni identificadores de dispositivo.</p>
+            <ul>
+                <li>Sin servidores backend — todo funciona localmente en su dispositivo.</li>
+                <li>Sin creación de cuentas — usa la aplicación de forma anónima.</li>
+                <li>Sin análisis, informes de fallos ni cookies de seguimiento.</li>
+                <li>Sin SDK de terceros que recopilen datos.</li>
+            </ul>
+
+            <h2>Dónde viven sus datos</h2>
+            <p>Todas las entradas de presupuesto, previsiones y ajustes que cree se almacenan <strong>exclusivamente en
+                    su propio dispositivo</strong> (almacenamiento local). Nunca tenemos acceso a ellos y nunca se
+                envían por internet.</p>
+
+            <h2>Su control</h2>
+            <p>Usted tiene el control total de sus datos. Puede eliminar todos los datos de la aplicación en cualquier
+                momento borrando el almacenamiento local de la aplicación o desinstalándola.</p>
+
+            <h2>Restricción de edad</h2>
+            <p>Fitim está destinado a usuarios <strong>mayores de 13 años</strong>. No recopilamos a sabiendas ningún
+                dato de nadie, independientemente de su edad, porque no recopilamos nada en absoluto.</p>
+
+            <h2>Cambios en esta política</h2>
+            <p>Podemos actualizar esta política de privacidad ocasionalmente. Cualquier cambio se publicará dentro de la
+                aplicación. El uso continuado de Fitim constituye la aceptación de la política actualizada.</p>
+
+            <h2>Contacto</h2>
+            <p>Si tiene alguna pregunta sobre esta política de privacidad, puede contactarnos en: <br />
+                <strong>📧 fitimapp@gmail.com</strong>
+            </p>
+        </div>
+
+        <div class="footer-note">
+            Fitim · Privacy-first budgeting · Last updated: July 8, 2026
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast">🔗 URL updated</div>
+
+    <script>
+        (function () {
+            const tabs = document.querySelectorAll('.lang-tab');
+            const contents = {
+                en: document.getElementById('lang-en'),
+                fr: document.getElementById('lang-fr'),
+                ht: document.getElementById('lang-ht'),
+                es: document.getElementById('lang-es')
+            };
+            const toast = document.getElementById('toast');
+            let toastTimer = null;
+
+            // Supported languages
+            const SUPPORTED_LANGS = ['en', 'fr', 'ht', 'es'];
+            const DEFAULT_LANG = 'en';
+
+            // ----- Helper: set active language -----
+            function setLanguage(lang) {
+                // Validate
+                if (!SUPPORTED_LANGS.includes(lang)) {
+                    lang = DEFAULT_LANG;
+                }
+
+                // Update tabs
+                tabs.forEach(tab => {
+                    tab.classList.toggle('active', tab.dataset.lang === lang);
+                });
+
+                // Update content
+                Object.keys(contents).forEach(key => {
+                    contents[key].classList.toggle('active', key === lang);
+                });
+
+                // Update URL query param without reload
+                const url = new URL(window.location);
+                url.searchParams.set('lang', lang);
+                window.history.replaceState({ lang: lang }, '', url);
+
+                // Show toast feedback
+                showToast('🌐 Language: ' + lang.toUpperCase());
+            }
+
+            // ----- Toast helper -----
+            function showToast(msg) {
+                toast.textContent = msg;
+                toast.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }
+
+            // ----- Read URL param on load -----
+            function getLangFromURL() {
+                const params = new URLSearchParams(window.location.search);
+                const lang = params.get('lang');
+                if (lang && SUPPORTED_LANGS.includes(lang)) {
+                    return lang;
+                }
+                return null;
+            }
+
+            // ----- Tab click handlers -----
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    const lang = this.dataset.lang;
+                    setLanguage(lang);
+                });
+            });
+
+            // ----- Init on load -----
+            const urlLang = getLangFromURL();
+            const initialLang = urlLang || DEFAULT_LANG;
+            setLanguage(initialLang);
+
+            // ----- Listen for browser back/forward (popstate) -----
+            window.addEventListener('popstate', function (event) {
+                const lang = event.state?.lang || getLangFromURL() || DEFAULT_LANG;
+                setLanguage(lang);
+            });
+
+            // ----- Also re-read URL if user manually changes it (rare) -----
+            // This handles case where user edits URL bar directly and presses Enter
+            window.addEventListener('pageshow', function () {
+                const lang = getLangFromURL();
+                if (lang) {
+                    setLanguage(lang);
+                }
+            });
+
+        })();
+    </script>
+
+</body>
+
+</html>
